@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Portfolio Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --mint: #a8e6cf;
+            --sky: #dcedc8;
+            --lilac: #c7ceea;
+            --peach: #ffd3b6;
+            --lemon: #ffaaa5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: #333;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .header a {
+            padding: 0.75rem 1.5rem;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background 0.3s;
+        }
+
+        .header a:hover {
+            background: #555;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--lilac);
+            box-shadow: 0 0 0 3px rgba(199, 206, 234, 0.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--lilac);
+            color: white;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: #b5bcd9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(199, 206, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-danger {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .btn-danger:hover {
+            background: #ff5252;
+        }
+
+        .items-list {
+            margin-top: 2rem;
+        }
+
+        .items-list h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .item {
+            background: #f9f9f9;
+            border-left: 4px solid var(--lilac);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-meta {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: #999;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            color: #333;
+            border-bottom-color: var(--lilac);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @media (max-width: 900px) {
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="header">
+            <h1>📊 Admin Panel</h1>
+            <div style="display: flex; gap: 1rem;">
+                <span style="color: #666; font-size: 0.9rem; align-self: center;">Logged in as Admin</span>
+                <a href="#" onclick="handleLogout(event)">🚪 Logout</a>
+            </div>
+        </div>
+
+        <div class="admin-grid">
+            <!-- Featured Section -->
+            <div class="card">
+                <h2>✨ Featured Items</h2>
+                
+                <div id="alert" style="display: none;"></div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('add-featured')">Add New</button>
+                    <button class="tab-btn" onclick="switchTab('manage-featured')">Manage</button>
+                    <button class="tab-btn" onclick="switchTab('export')">Export</button>
+                </div>
+
+                <!-- Add Featured -->
+                <div id="add-featured" class="tab-content active">
+                    <form id="featuredForm">
+                        <div class="form-group">
+                            <label>Type *</label>
+                            <select id="featuredType" required onchange="updateFeaturedFields()">
+                                <option value="">Select type</option>
+                                <option value="video">Video (TikTok/Instagram)</option>
+                                <option value="article">Article</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Platform *</label>
+                            <select id="featuredPlatform" required>
+                                <option value="">Select platform</option>
+                                <option value="TikTok">TikTok</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Medium">Medium</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Title *</label>
+                            <input type="text" id="featuredTitle" placeholder="e.g., Study Aesthetics" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="featuredDescription" placeholder="Brief description of the content"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Handle *</label>
+                            <input type="text" id="featuredHandle" placeholder="e.g., @your_handle or Medium · Feb 2026" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>URL *</label>
+                            <input type="url" id="featuredUrl" placeholder="https://..." required>
+                        </div>
+
+                        <div id="videoFields" style="display: none;">
+                            <div class="form-group">
+                                <label>Video URL</label>
+                                <input type="url" id="featuredVideoUrl" placeholder="Direct link to video">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Thumbnail Image</label>
+                                <input type="text" id="featuredThumbnail" placeholder="e.g., images/thumb.jpg">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Color (Hex)</label>
+                                <input type="text" id="featuredColor" placeholder="#06b6d4">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="featuredVerified"> Verified?
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add Featured Item</button>
+                    </form>
+                </div>
+
+                <!-- Manage Featured -->
+                <div id="manage-featured" class="tab-content">
+                    <div class="items-list">
+                        <div id="featuredList"></div>
+                    </div>
+                </div>
+
+                <!-- Edit Featured Modal -->
+                <div id="editFeaturedModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; flex-items: center; justify-content: center;">
+                    <div style="background: white; border-radius: 1rem; padding: 2rem; max-width: 500px; max-height: 90vh; overflow-y: auto; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h3>Edit Featured Item</h3>
+                            <button type="button" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;" onclick="closeFeaturedModal()">×</button>
+                        </div>
+                        <form id="editFeaturedForm">
+                            <div class="form-group">
+                                <label>Type</label>
+                                <select id="editFeaturedType" onchange="updateEditFeaturedFields()">
+                                    <option value="video">Video (TikTok/Instagram)</option>
+                                    <option value="article">Article</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Platform</label>
+                                <select id="editFeaturedPlatform">
+                                    <option value="TikTok">TikTok</option>
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Medium">Medium</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" id="editFeaturedTitle">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="editFeaturedDescription"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Handle</label>
+                                <input type="text" id="editFeaturedHandle">
+                            </div>
+
+                            <div class="form-group">
+                                <label>URL</label>
+                                <input type="url" id="editFeaturedUrl">
+                            </div>
+
+                            <div id="editVideoFields" style="display: none;">
+                                <div class="form-group">
+                                    <label>Video URL</label>
+                                    <input type="url" id="editFeaturedVideoUrl">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Thumbnail Image</label>
+                                    <input type="text" id="editFeaturedThumbnail" placeholder="e.g., images/thumb.jpg">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Color (Hex)</label>
+                                    <input type="text" id="editFeaturedColor" placeholder="#06b6d4">
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="editFeaturedVerified"> Verified?
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Export -->
+                <div id="export" class="tab-content">
+                    <p style="margin-bottom: 1rem; color: #666;">Copy the code below and paste it into your data.js file:</p>
+                    <textarea id="exportCode" readonly style="width: 100%; height: 400px; font-family: monospace; font-size: 0.85rem; padding: 1rem; border: 1px solid #ddd; border-radius: 0.5rem;"></textarea>
+                    <button type="button" class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" onclick="copyExportCode()">Copy to Clipboard</button>
+                </div>
+            </div>
+
+            <!-- Projects Section -->
+            <div class="card">
+                <h2>💼 Projects</h2>
+
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="switchTab('add-project')">Add New</button>
+                    <button class="tab-btn" onclick="switchTab('manage-projects')">Manage</button>
+                </div>
+
+                <!-- Add Project -->
+                <div id="add-project" class="tab-content active">
+                    <form id="projectForm">
+                        <div class="form-group">
+                            <label>Project Name *</label>
+                            <input type="text" id="projectName" placeholder="e.g., AI Restaurant Design" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Role *</label>
+                            <input type="text" id="projectRole" placeholder="e.g., Lead Designer & Developer" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="projectDescription" placeholder="Project description"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tags</label>
+                            <input type="text" id="projectTags" placeholder="e.g., AI, UX, Web (comma separated)">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Links (comma separated)</label>
+                            <input type="text" id="projectLinks" placeholder="e.g., https://github.com/..., https://demo.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="text" id="projectImage" placeholder="e.g., images/project.jpg">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add Project</button>
+                    </form>
+                </div>
+
+                <!-- Manage Projects -->
+                <div id="manage-projects" class="tab-content">
+                    <div class="items-list">
+                        <div id="projectsList"></div>
+                    </div>
+                </div>
+
+                <!-- Edit Project Modal -->
+                <div id="editProjectModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; flex-items: center; justify-content: center;">
+                    <div style="background: white; border-radius: 1rem; padding: 2rem; max-width: 500px; max-height: 90vh; overflow-y: auto; margin: auto; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                            <h3>Edit Project</h3>
+                            <button type="button" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;" onclick="closeProjectModal()">×</button>
+                        </div>
+                        <form id="editProjectForm">
+                            <div class="form-group">
+                                <label>Project Name</label>
+                                <input type="text" id="editProjectName">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Role</label>
+                                <input type="text" id="editProjectRole">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea id="editProjectDescription"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tags (comma separated)</label>
+                                <input type="text" id="editProjectTags">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Links (comma separated)</label>
+                                <input type="text" id="editProjectLinks">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="text" id="editProjectImage" placeholder="e.g., images/project.jpg">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
