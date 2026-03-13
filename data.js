@@ -19,8 +19,8 @@ const PORTFOLIO = {
   roles: "Software Engineer · AI Researcher · UX Designer",
   heroTagline: `Hi, I'm Anushka,<br><em>an engineer who builds<br> what matters, with passion.</em>`,
   heroDesc: "",
-  email: "anuachoug@gmail.com",    
-  location: "Remote / Open to relocation",
+  email: "anuachoug@gmail.com",
+  location: "Seattle + Open to relocation",
   availability: "Open to work now",
   education_short: "B.S. Computer Science",
 
@@ -30,19 +30,12 @@ const PORTFOLIO = {
   // About section photo
   aboutImage: "images/uwgrad.png",  // e.g. "about.jpg" or null for placeholder
 
-  // Stats shown in the About side-panel
-  stats: [
-    { num: "4+",  label: "Domains" },
-    { num: "12+", label: "Projects" },
-    { num: "1+",  label: "Years exp." },
-  ],
-
   interests: ["Open Source","AI Safety","HCI","Writing","Teaching CS","System Design","Data Viz"],
 
   aboutBio: [
-    `I'm <span class="panel-highlight">Anushka</span> — a computer science student and engineer passionate about building things at the intersection of <span class="panel-highlight">software</span>, <span class="panel-highlight">data</span>, <span class="panel-highlight">design</span>, and <span class="panel-highlight">AI</span>.`,
-    `I thrive in fast-moving environments where I get to go deep on hard problems — whether that's optimizing a backend system, running user research, or fine-tuning a language model.`,
-    `Currently focused on agentic AI research and actively looking for full-time opportunities in software engineering or AI/ML.`,
+    `Hi! I'm <span class="panel-highlight">Anushka</span>, a grad student at <span class="panel-highlight">UW Foster</span> studying information systems, with a background spanning <span class="panel-highlight">software engineering</span>, <span class="panel-highlight">data</span>, and <span class="panel-highlight">AI</span>.`,
+    `I like building software that scales, making sense of messy data, and shipping AI that actually does something useful.`,
+    `Right now I'm deep in <span class="panel-highlight">agentic AI</span> and actively looking for full-time roles in <span class="panel-highlight">software engineering</span> and <span class="panel-highlight">AI/ML</span>.`,
   ],
 
   /* ── CONTACT LINKS ──────────────────────────────────────── */
@@ -51,9 +44,28 @@ const PORTFOLIO = {
     { icon: "🐙", label: "GitHub",    handle: "/anushka23ja",    url: "https://github.com/anushka23ja",    bg: "#1a1a2e" },
     { icon: "✉️",  label: "Email",    handle: "anuachoug@gmail.com", url: "mailto:anuachoug@gmail.com",            bg: "#e07040" },
     { icon: "📄", label: "Resume",   handle: "Download PDF", url: "ChouguleAnushka_Resume (6).pdf",            bg: "#4a90e2" },
+
+    /* ── ADD NEW CONTACT LINK ──────────────────────────────────────────────
+    {
+      icon: "🐦",                          // emoji icon
+      label: "Twitter",                   // display label
+      handle: "@yourhandle",              // shown under the label
+      url: "https://twitter.com/...",     // where the button links
+      bg: "#1da1f2",                      // button background color (hex)
+    },
+    ── END TEMPLATE ── */
   ],
 
   /* ── FEATURED ───────────────────────────────────────────── */
+  /**
+   * HOW TO ADD A FEATURED CARD:
+   *   type options:  "video" | "photo" | "article"
+   *   - "video"  → shows a video thumbnail + play button linking to videoUrl
+   *   - "photo"  → shows an image thumbnail with overlay text
+   *   - "article"→ shows a text card with a read-more link
+   *
+   * Copy the matching template at the bottom of this array and fill it in.
+   */
   featured: [
     {
       type: "video",
@@ -67,7 +79,7 @@ const PORTFOLIO = {
       thumbnail: "images/tiktok.png",
       color: "#d1c7e9",
       autoplay: true,
-       verified: true,
+      verified: true,
       verifiedColor: "#305a9e",
     },
     {
@@ -86,6 +98,7 @@ const PORTFOLIO = {
       verifiedColor: "#305a9e",
       autoplay: true
     },
+    
     {
       type: "article",
       icon: "ARTICLE",
@@ -98,26 +111,79 @@ const PORTFOLIO = {
       color: "#f59e0b",
       autoplay: false,
       verified: false
-    }
+    },
+
+    /* ── ADD NEW FEATURED — VIDEO ──────────────────────────────────────────
+    {
+      type: "video",
+      icon: "VIDEO",
+      platform: "YouTube",                          // platform name shown on card
+      title: "My Video Title",
+      description: "Short description of the video.",
+      handle: "@yourhandle",
+      url: "https://youtube.com/@...",              // link when card is clicked
+      videoUrl: "https://youtube.com/watch?v=...",  // direct video URL
+      thumbnail: "images/my-video-thumb.jpg",       // or null
+      color: "#ff0000",                             // card accent color
+      autoplay: false,
+      verified: false,
+      verifiedColor: "#305a9e",
+    },
+    ── END VIDEO TEMPLATE ── */
+
+    /* ── ADD NEW FEATURED — PHOTO ──────────────────────────────────────────
+    {
+      type: "photo",
+      icon: "PHOTO",
+      platform: "Instagram",                        // platform label
+      title: "My Photo Post",
+      description: "Short caption or context.",
+      handle: "@yourhandle",
+      url: "https://instagram.com/p/...",           // link when card is clicked
+      thumbnail: "images/my-photo-thumb.jpg",       // image to display
+      color: "#a78bfa",                             // card accent color
+      overlayTitle: "Title On Photo",               // text overlaid on the image
+      overlaySubtitle: "subtitle under title",
+      verified: false,
+      verifiedColor: "#305a9e",
+      autoplay: false,
+    },
+    ── END PHOTO TEMPLATE ── */
+
+    /* ── ADD NEW FEATURED — ARTICLE ────────────────────────────────────────
+    {
+      type: "article",
+      icon: "ARTICLE",
+      platform: "Medium",                           // or "Substack", "Blog", etc.
+      title: "My Article Title",
+      description: "One or two sentences about what the article covers.",
+      handle: "Medium · Month Year",
+      linkText: "Read Article →",
+      url: "https://medium.com/@...",
+      color: "#f59e0b",                             // card accent color
+      autoplay: false,
+      verified: false,
+    },
+    ── END ARTICLE TEMPLATE ── */
   ],
 
   /* ── PROJECTS ───────────────────────────────────────────── */
   /**
    * HOW TO ADD A NEW PROJECT:
-   *   1. Copy the template at the BOTTOM of this array (after the last project)
-   *   2. Paste it above the closing ], remove the /* and *\/ comment markers
-   *   3. Fill in your details and save — it appears on the site automatically!
+   *   1. Copy the template below (after the last project)
+   *   2. Remove the surrounding comment markers
+   *   3. Fill in your details — it appears on the site automatically!
    *
-   * category:  "ai"  |  "programming"  |  "data"  |  "design"  |  "research"
-   * color:     "mint" |  "sky"  |  "lilac"  |  "peach"  |  "lemon"
-   * image:     put file in /images folder, e.g. "images/my-project.png" (or null)
-   * links:     add as many { label, url } objects as you need
+   * category options:  "ai" | "programming" | "data" | "design" | "research"
+   * color options:     "mint" | "sky" | "lilac" | "peach" | "lemon"
+   * image:             "images/proj-name.png"  or  null  for no image
+   * links:             add as many { label, url } objects as you need
    */
   projects: [
     {
       title: "Pathwiser AI: Academic & Career Roadmap",
       date: "Jan 2026 - Present · UW Foster School of Business",
-      desc: "Full-stack AI platform enabling students and professionals to generate personalized academic and career roadmaps. Implemented end-to-end functionality across the front-end and back-end with AI-driven recommendations.",
+      desc: "Built a full-stack AI platform using React.js and TypeScript that delivers personalized academic and career roadmaps through AI-driven recommendations.",
       tags: ["AI Research", "React.js", "TypeScript", "Full-Stack"],
       category: "ai",
       color: "peach",
@@ -130,8 +196,8 @@ const PORTFOLIO = {
     {
       title: "Predicting Physical Activity from Wearable Sensor Data",
       date: "Jan 2025 - Jun 2025 · University of Washington",
-      desc: "Developed and trained 6 machine learning models to predict physical activity using time-series data from Fitbit wearable sensors. Step count and heart rate data were cleaned, structured, and used to train and evaluate predictive algorithms, enabling accurate classification and forecasting of activity patterns.",
-      tags: ["Research", "Python", "Scikit-learn", "XGBoost"],
+      desc: "Developed and compared 6 machine learning models (XGBoost, Scikit-learn) on Fitbit time-series data to classify and predict physical activity with high accuracy.",
+      tags: ["Research", "Python", "Scikit-learn", "XGBoost", "Time-Series Analysis"],
       category: "research",
       color: "peach",
       image: "images/proj-wearable.png",
@@ -142,7 +208,7 @@ const PORTFOLIO = {
     {
       title: "Leveraging Peer Facilitation to Bridge Skill Gaps in Introductory Programming Education",
       date: "Mar 2025 - May 2025 · University of Washington",
-      desc: "Analyzed the impact of peer facilitation in supporting students with diverse skill levels in introductory programming courses. Survey data from 34 students was evaluated to assess the effectiveness of various academic support resources. Peer facilitators emerged as one of the most frequently used and highly rated forms of support.",
+      desc: "Conducted survey-based research across 34 students to quantify the impact of peer support in CS education; peer facilitation emerged as the highest-rated academic resource.",
       tags: ["Research", "Survey Analysis", "Python"],
       category: "research",
       color: "peach",
@@ -154,9 +220,9 @@ const PORTFOLIO = {
     {
       title: "AI-Powered Restaurant Website: Yea's Wok",
       date: "Feb 2026 · UW Foster MSIS",
-      desc: "Built a mobile-first restaurant website using AI-assisted vibe coding (Lovable) for a real business. Added a voice AI feature powered by ElevenLabs and Claude that calls the restaurant on the user's behalf. Iterated through stakeholder and customer feedback to improve usability, navigation, and operational clarity.",
+      desc: "Delivered a production-ready, mobile-first restaurant website with an integrated voice AI agent (ElevenLabs + Claude API) that places calls on behalf of users.",
       tags: ["Programming", "Prompt Engineering", "UX Design", "Claude AI"],
-      category: "programming",
+      category: "ai",
       color: "sky",
       image: "images/proj-yeas-wok.png",
       links: [
@@ -167,7 +233,7 @@ const PORTFOLIO = {
     {
       title: "AI-Powered Cover Letter Agent",
       date: "Feb 2026 · UW Foster MSIS",
-      desc: "Built a multi-agent agentic workflow in n8n that auto-generates personalized cover letters. A Research Agent uses Tavily web search to pull real company culture and values, then a Tailoring Agent writes a targeted letter using Claude 3.5 Sonnet. Delivers final output directly to Gmail in under 60 seconds.",
+      desc: "Engineered a multi-agent automation pipeline in n8n using Claude 3.5 Sonnet and Tavily web search to generate tailored cover letters and deliver them via Gmail API in under 60 seconds.",
       tags: ["AI Agents", "n8n", "Claude 3.5 Sonnet", "Tavily", "Gmail API"],
       category: "ai",
       color: "mint",
@@ -180,7 +246,7 @@ const PORTFOLIO = {
     {
       title: "An Analysis on Factors Affecting Mortgage Rate",
       date: "Sep 2025 · UW Foster MSIS",
-      desc: "Analyzed Freddie Mac's Single-Family Loan-Level Dataset to identify borrower and loan characteristics driving interest rate spread. Built a multiple linear regression model using credit score, LTV ratio, DTI ratio, and loan purpose as predictors, explaining ~26% of rate spread variation.",
+      desc: "Applied multiple linear regression to Freddie Mac's loan-level dataset, identifying credit score, LTV, and DTI as key drivers of rate spread (R² = 0.26) across thousands of records.",
       tags: ["Data Analysis", "Python", "Pandas", "Google Colab"],
       category: "data",
       color: "lemon",
@@ -194,7 +260,7 @@ const PORTFOLIO = {
     {
       title: "AI Social Media Content Studio",
       date: "Mar 2026 · UW Foster MSIS",
-      desc: "AI-powered content studio for Hearth & Brew. Input one topic, get platform-native posts for Instagram, Facebook, and TikTok. Each post is scored on 5 brand-fit dimensions by a second AI call. Generates matched images per platform. Publishes directly to connected accounts.",
+      desc: "Designed an AI content pipeline that generates and scores platform-native posts for Instagram, Facebook, and TikTok from a single input, with automated image generation and direct publishing.",
       tags: ["AI Agents", "API Integration", "Prompt Engineering", "Python"],
       category: "ai",
       color: "lilac",
@@ -207,7 +273,7 @@ const PORTFOLIO = {
     {
       title: "Zara Menswear Sales Prediction",
       date: "Feb 2026 · UW Foster MSIS",
-      desc: "Predicting sales volume for 252 Zara menswear products using five regression models, from Linear Regression to XGBoost and MLP. XGBoost was the best performer at R² = 0.474 after GridSearchCV tuning, with SHAP values explaining each prediction. Findings are deployed in an interactive four-tab Streamlit dashboard with live prediction inputs.",
+      desc: "Trained and evaluated 5 regression models on 252 products, achieving R² = 0.47 with XGBoost; deployed SHAP-explainable predictions in an interactive Streamlit dashboard.",
       tags: ["Data Analysis", "Python", "Machine Learning", "XGBoost", "SHAP"],
       category: "data",
       color: "lemon",
@@ -217,6 +283,45 @@ const PORTFOLIO = {
         { label: "GitHub ↗",  url: "https://github.com/Anushka23ja/zara-sales-prediction" },
       ],
     },
+    {
+      title: "Simulated File System in C",
+      date: "Jan 2025 · CSSE Operating Systems",
+      desc: "Implemented a low-level file system in C using BFS block traversal, FBN/DBN mapping, and block-level read/write with support for dynamically extended file sizes.",
+      tags: ["Programming", "Operating System", "C", "File Systems", "Memory Management"],
+      category: "programming",
+      color: "mint",
+      image: "images/proj-os.png",
+      links: [
+        { label: "Demo ↗",   url: "https://endeavor-essence-view.lovable.app/" },
+        { label: "GitHub ↗", url: "https://..." },
+      ],
+    },
+    {
+      title: "Linked List Implementations and Algorithms",
+      date: "Jan 2025 · CSSE Data Structures",
+      desc: "Implemented circular doubly linked, move-to-front, and transpose linked lists in C++, with full support for insertion, deletion, traversal, and access operations.",
+      tags: ["Programming", "Data Structures", "C++", "Algorithms", "Linked Lists"],
+      category: "programming",
+      color: "mint",
+      image: "images/proj-dsa.png",
+      links: [
+        { label: "Demo ↗",   url: "https://easy-see-code.lovable.app/" },
+        { label: "GitHub ↗", url: "https://github.com/Anushka23ja/CSS343" },
+      ],
+    },
+    {
+      title: "Media Rental Store System",
+      date: "Jan 2025 · CSSE Data Structures",
+      desc: "Designed a modular C++ rental store system with OOP architecture, hash table-based retrieval, and a command parser to handle real-world inventory, borrowing, and return workflows.",
+      tags: ["Programming", "Data Structures", "C++", "Algorithms", "OOP"],
+      category: "programming",
+      color: "mint",
+      image: "images/proj-dsa(2).png",
+      links: [
+        { label: "Demo ↗",   url: "https://unveil-my-wonder.lovable.app/" },
+        { label: "GitHub ↗", url: "https://github.com/Anushka23ja/CSS343" },
+      ],
+    },
 
     /* ── ADD NEW PROJECT — copy block below, remove these comment markers, fill in ──
     {
@@ -224,19 +329,41 @@ const PORTFOLIO = {
       date: "Month Year · Context / Class",
       desc: "One to three sentences describing what you built, the problem it solves, and any key results or impact.",
       tags: ["Tag1", "Tag2", "Tag3"],
-      category: "ai",           // "ai" | "programming" | "data" | "design" | "research"
-      color: "mint",            // "mint" | "sky" | "lilac" | "peach" | "lemon"
+      //       ↑ pick from: "AI Research" | "React.js" | "TypeScript" | "Python" | "Full-Stack"
+      //                    "Data Analysis" | "Machine Learning" | "Research" | "UX Design"
+      //                    "Programming" | "C++" | "Java" | "JavaScript" | "Go"
+      //                    ...or make up your own!
+
+      category: "ai",
+      //         ↑ "ai" | "programming" | "data" | "design" | "research"
+
+      color: "mint",
+      //      ↑ "mint" (green) | "sky" (blue) | "lilac" (purple) | "peach" (orange) | "lemon" (yellow)
+
       image: "images/proj-name.png",  // or null for no image
+
       links: [
-        { label: "GitHub ↗",   url: "https://github.com/..." },
+        { label: "GitHub ↗",   url: "https://github.com/Anushka23ja/..." },
         { label: "Demo ↗",     url: "https://..." },
-        { label: "Paper ↗",    url: "https://..." },
+        { label: "Paper ↗",    url: "https://drive.google.com/..." },
+        { label: "Slides ↗",   url: "https://drive.google.com/..." },
+        { label: "Live App ↗", url: "https://..." },
+        // ↑ add or remove links as needed — only include what you have!
       ],
     },
     ── END TEMPLATE ── */
   ],
 
   /* ── EXPERIENCE ─────────────────────────────────────────── */
+  /**
+   * HOW TO ADD A NEW EXPERIENCE:
+   *   1. Copy the template below and paste it at the TOP of this array
+   *      (most recent jobs first)
+   *   2. Remove the comment markers and fill in your details.
+   *
+   * color options: "mint" | "sky" | "lilac" | "peach" | "lemon"
+   * stack:         list of tech/skills used — shown as small tags
+   */
   experience: [
     {
       role: "AI Curriculum Developer + Research Lead",
@@ -270,9 +397,31 @@ const PORTFOLIO = {
       desc: "Designed and developed software, web pages, apps, scripts, and media solutions on the DevOps team. Led the design of a SEAL robotics webpage using Figma, React.js, TypeScript, and Bootstrap.",
       stack: ["React.js","TypeScript","Figma","Bootstrap","DevOps"],
     },
+
+    /* ── ADD NEW EXPERIENCE — copy block below, remove comment markers, fill in ──
+    {
+      role: "Job Title / Role",
+      company: "Company Name - City, State",
+      date: "Mon Year - Mon Year",          // e.g. "Jun 2026 - Aug 2026" or "Jun 2026 - Present"
+      color: "mint",
+      //      ↑ "mint" | "sky" | "lilac" | "peach" | "lemon"
+      desc: "2-4 sentences about your responsibilities, what you built or contributed, and measurable impact (numbers help!).",
+      stack: ["Skill1", "Skill2", "Skill3"],
+      // ↑ 3–6 keywords shown as tags — use tech, tools, or soft skills
+    },
+    ── END TEMPLATE ── */
   ],
 
   /* ── EDUCATION ──────────────────────────────────────────── */
+  /**
+   * HOW TO ADD A NEW EDUCATION ENTRY:
+   *   1. Copy the template below and paste it at the TOP of this array
+   *      (most recent degree first)
+   *   2. Remove the comment markers and fill in your details.
+   *
+   * gpa:   optional — omit the field entirely if you don't want to show it
+   * tags:  clubs, honors, programs, etc. — shown as small pills
+   */
   education: [
     {
       degree: "MS, Management Information Systems",
@@ -296,9 +445,31 @@ const PORTFOLIO = {
       color: "lilac",
       tags: ["Dual Enrollment","Phi Theta Kappa"],
     },
+
+    /* ── ADD NEW EDUCATION — copy block below, remove comment markers, fill in ──
+    {
+      degree: "Degree Name, Field of Study",   // e.g. "PhD, Computer Science"
+      school: "University Name",
+      year: "Sep 20XX - Jun 20XX",
+      color: "peach",
+      //      ↑ "mint" | "sky" | "lilac" | "peach" | "lemon"
+      gpa: "3.9 / 4.0",                        // optional — delete this line to hide
+      tags: ["Club Name", "Honor Society", "Relevant Program"],
+      // ↑ extracurriculars, honors, or programs — add as many as you like
+    },
+    ── END TEMPLATE ── */
   ],
 
   /* ── SKILLS ─────────────────────────────────────────────── */
+  /**
+   * HOW TO UPDATE SKILLS:
+   *   - To ADD a new skill to an existing group: just add it to the items array.
+   *   - To ADD a new skill group: copy the template at the bottom of this array.
+   *
+   * label:  shown as a section header (the "// Engineering" style)
+   * color:  "mint" | "sky" | "lilac" | "peach" | "lemon"
+   * items:  list of individual skills shown as tags
+   */
   skills: [
     {
       label: "// Engineering",
@@ -320,22 +491,48 @@ const PORTFOLIO = {
       color: "peach",
       items: ["LangChain","RAG","LoRA / Fine-tuning","Evals","Prompt Engineering","HuggingFace"],
     },
+
+    /* ── ADD NEW SKILL GROUP — copy block below, remove comment markers, fill in ──
+    {
+      label: "// Cloud & DevOps",             // shown as the group header
+      color: "lemon",
+      //      ↑ "mint" | "sky" | "lilac" | "peach" | "lemon"
+      items: ["AWS", "GCP", "Docker", "Kubernetes", "CI/CD", "Terraform"],
+      // ↑ list as many individual skills as you want
+    },
+    ── END TEMPLATE ── */
   ],
 
   /* ── CERTIFICATIONS / ACHIEVEMENTS ─────────────────────── */
+  /**
+   * HOW TO ADD A NEW CERTIFICATION:
+   *   1. Copy the template below and paste it before the closing ]
+   *   2. Remove the comment markers and fill in your details.
+   *
+   * color options: "mint" | "sky" | "lilac" | "peach" | "lemon"
+   */
   certifications: [
     {
       title: "Introduction to Neuroscience and Artificial Intelligence",
-      sub: "University of Washington · Issued Dec 2024 ",
+      sub: "University of Washington · Issued Dec 2024",
       color: "mint",
     },
     {
-      title: "Computer Programming Foundations Certificate  ",
-      sub: "Cascadia College · Issued 2023 ",
+      title: "Computer Programming Foundations Certificate",
+      sub: "Cascadia College · Issued 2023",
       color: "sky",
     },
-    // ── ADD MORE BELOW ──
-    // { title: "My Cert", sub: "Issuer · Date", color: "lilac" },
+
+    /* ── ADD NEW CERTIFICATION — copy block below, remove comment markers, fill in ──
+    {
+      title: "Certification or Award Name",
+      sub: "Issuing Organization · Issued Month Year",
+      //     ↑ examples: "Coursera · Issued Jan 2026"
+      //                 "AWS · Issued Mar 2026 · Expires Mar 2028"
+      color: "lilac",
+      //      ↑ "mint" | "sky" | "lilac" | "peach" | "lemon"
+    },
+    ── END TEMPLATE ── */
   ],
 
 };
