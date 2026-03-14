@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Anushka Chougule — Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css?v=20260314q"/>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
     <li><a href="#experience">Work & Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#featured">Featured</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#sidequests">Side quests</a></li>
     <li><a href="ChouguleAnushka_Resume (6).pdf" target="_blank">Resume</a></li>
   </ul>
   <div class="nav-status">
@@ -152,6 +152,160 @@
 
 
 <!-- ═══════════════════════════════════════════════
+     SIDE QUESTS
+════════════════════════════════════════════════ -->
+<section id="sidequests">
+  <div class="section-wrap">
+    <div class="section-eyebrow">Side Quests</div>
+    <div class="sq-layout">
+
+      <!-- Left: phone mockup -->
+      <div class="sq-phone-col">
+        <div class="sq-phone-glow"></div>
+
+        <!-- Vertical text on left -->
+        <div class="sq-vertical-text">Scroll through my phone<br>& get to know me</div>
+
+        <!-- Scroll hint bar (lives beside the phone) -->
+        <div class="sq-scroll-hint" aria-hidden="true">
+          <span class="sq-scroll-label">scroll</span>
+          <div class="sq-scroll-track">
+            <div class="sq-scroll-thumb"></div>
+          </div>
+        </div>
+
+        <div class="phone-mockup">
+          <!-- Dynamic island -->
+          <div class="phone-island"></div>
+
+          <!-- Status bar -->
+          <div class="phone-statusbar">
+            <span class="phone-time" id="phoneTime">9:41</span>
+            <div class="phone-status-icons">
+              <!-- Signal bars -->
+              <svg width="17" height="12" viewBox="0 0 17 12" fill="none" aria-hidden="true">
+                <rect x="0"    y="6" width="3" height="6"  rx="1" fill="white" opacity=".35"/>
+                <rect x="4.5"  y="4" width="3" height="8"  rx="1" fill="white" opacity=".6"/>
+                <rect x="9"    y="2" width="3" height="10" rx="1" fill="white" opacity=".82"/>
+                <rect x="13.5" y="0" width="3" height="12" rx="1" fill="white"/>
+              </svg>
+              <!-- Wifi -->
+              <svg width="16" height="12" viewBox="0 0 20 15" fill="white" aria-hidden="true">
+                <path opacity=".35" d="M1 5.5C4.5 2 7.5.5 10 .5s5.5 1.5 9 5l-1.4 1.6C14.5 4 12 2.3 10 2.3S5.5 4 2.4 7.1L1 5.5z"/>
+                <path opacity=".65" d="M3.8 8.2C6.2 5.8 8.1 4.8 10 4.8s3.8 1 6.2 3.4L14.8 9.7C13 7.8 11.5 6.9 10 6.9S7 7.8 5.2 9.7L3.8 8.2z"/>
+                <circle cx="10" cy="13.5" r="1.6"/>
+              </svg>
+              <!-- Battery -->
+              <svg width="25" height="12" viewBox="0 0 25 12" fill="none" aria-hidden="true">
+                <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity=".35"/>
+                <rect x="22" y="3.5" width="2.5" height="5" rx="1.25" fill="white" fill-opacity=".4"/>
+                <rect x="2" y="2" width="16" height="8" rx="2" fill="white"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Screens -->
+          <div class="phone-screens-wrap">
+
+            <!-- FEED screen -->
+            <div class="pscreen active" id="pscreen-feed">
+              <div class="pfeed-header">
+                <span class="pfeed-title">officialanushka <svg width="14" height="14" viewBox="0 0 24 24" fill="#3b9eff" style="vertical-align:middle;margin-bottom:1px" aria-label="verified"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622C17.176 19.29 21 14.591 21 9a12.02 12.02 0 00-.382-3.016z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div id="pfeed-posts"></div>
+            </div>
+
+            <!-- BUILDS screen -->
+            <div class="pscreen" id="pscreen-apps">
+              <div class="pfeed-header">
+                <span class="pfeed-title">my builds ✦</span>
+                <span class="pfeed-sub">tap to visit</span>
+              </div>
+              <div id="papp-grid"></div>
+            </div>
+
+            <!-- TUNES screen -->
+            <div class="pscreen" id="pscreen-tunes">
+              <div class="pfeed-header">
+                <span class="pfeed-title">now playing ✦</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
+              </div>
+              <div id="ptunes-list"></div>
+            </div>
+
+          </div>
+
+          <!-- Bottom nav (visible by default since feed is default) -->
+          <div class="phone-navbar pnav-visible" id="phoneNavbar">
+            <button class="pnav-btn active" id="pnav-feed" onclick="switchPScreen('feed')">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+              <span>Feed</span>
+            </button>
+            <button class="pnav-btn" id="pnav-apps" onclick="switchPScreen('apps')">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z"/></svg>
+              <span>Builds</span>
+            </button>
+            <button class="pnav-btn" id="pnav-tunes" onclick="switchPScreen('tunes')">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <span>Tunes</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: intro text -->
+      <div class="sq-intro">
+        <div class="sq-content">
+          <h2 class="section-heading sq-heading-animated" style="font-size: 2.8rem; line-height: 1.1;">Stalk me.</h2>
+          <p class="section-sub sq-sub-animated" style="margin-bottom:3rem; font-size: 1rem; color: #4a4a62;">It's not creepy if it's a portfolio. Scroll through my feed, check out the passion projects, and vibe with my current playlist. This phone is basically my digital self — so go ahead, stalk away! 👀</p>
+
+          <div class="sq-hints" style="margin-top: 2rem;">
+            <div class="sq-hint sq-hint-1">
+              <div class="sq-hint-card">
+                <div class="sq-hint-top">
+                  <div class="sq-hint-number">1</div>
+                </div>
+                <div class="sq-hint-content">
+                  <strong>My feed</strong>
+                  <p>Life outside coding. Hiking, coffee, adventures.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sq-hint sq-hint-2">
+              <div class="sq-hint-card">
+                <div class="sq-hint-top">
+                  <div class="sq-hint-number">2</div>
+                </div>
+                <div class="sq-hint-content">
+                  <strong>My builds</strong>
+                  <p>Passion projects and vibe-coded apps created for fun.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="sq-hint sq-hint-3">
+              <div class="sq-hint-card">
+                <div class="sq-hint-top">
+                  <div class="sq-hint-number">3</div>
+                </div>
+                <div class="sq-hint-content">
+                  <strong>My tunes</strong>
+                  <p>What I'm listening to right now.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
      ABOUT
 ════════════════════════════════════════════════ -->
 <section id="about">
@@ -244,8 +398,9 @@
 <!-- ═══════════════════════════════════════════════
      SCRIPTS — load data first, then main
 ════════════════════════════════════════════════ -->
-<script src="data.js"></script>
-<script src="main.js"></script>
+<script src="data.js?v=20260314q"></script>
+<script src="main.js?v=20260314q"></script>
+<script src="phone.js?v=20260314q"></script>
 
 </body>
 </html>

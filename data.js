@@ -68,20 +68,22 @@ const PORTFOLIO = {
    */
   featured: [
     {
-      type: "video",
-      icon: "VIDEO",
+      type: "photo",
+      icon: "TikTok",
       platform: "TikTok",
       title: "Romantizing Autumn at UW",
       description: "Sharing positive mindset on social media as a 20-yr old UW grad student.",
       handle: "@chouguleanushka",
-      url: "https://tiktok.com/@chouguleanushka",
-      videoUrl: "https://www.tiktok.com/@chouguleanushka/video/1234567890",
+      url: "https://www.tiktok.com/@chouguleanushka/video/7569187285934132535",
       thumbnail: "images/tiktok.png",
-      color: "#d1c7e9",
-      autoplay: true,
+      color: "#eec6ec",
+      overlayTitle: "Romantizing Autumn at UW",
+      overlaySubtitle: "Sharing positive mindset on social media as a 20-yr old UW grad student.",
       verified: true,
       verifiedColor: "#305a9e",
+      autoplay: true
     },
+    
     {
       type: "photo",
       icon: "Instagram",
@@ -89,28 +91,30 @@ const PORTFOLIO = {
       title: "A Day In My Life",
       description: "Behind the scenes at UW Foster School of Business. A glimpse into the daily rhythm of graduate studies and academic life.",
       handle: "@uwfosterschool",
-      url: "https://www.instagram.com/uwfosterschool",
+      url: "https://www.instagram.com/reel/DVMT1LPk4wG/",
       thumbnail: "images/instagram-day-life-thumb.jpg",
-      color: "#a78bfa",
+      color: "#fda8c4",
       overlayTitle: "A Day In My Life",
       overlaySubtitle: "as a graduate @ UW Foster",
       verified: true,
       verifiedColor: "#305a9e",
       autoplay: true
     },
-    
     {
-      type: "article",
-      icon: "ARTICLE",
-      platform: "Medium",
-      title: "AI-Powered Restaurant Design",
-      description: "Exploring the intersection of artificial intelligence and user experience design in the restaurant industry.",
-      handle: "Medium · Feb 2026",
-      linkText: "Read Article →",
-      url: "https://medium.com/@anuchoug05/building-a-restaurant-website-with-ai-from-static-pages-to-a-voice-powered-experience-b1c03fef55f3",
-      color: "#f59e0b",
-      autoplay: false,
-      verified: false
+      type: "photo",
+      icon: "Instagram",
+      platform: "Instagram",
+      title: "UW Graduate Post",
+      description: "Romantizing the graduate experience.",
+      handle: "@smirk_uw",
+      url: "https://www.instagram.com/reel/DKvjOihR8cQ/",
+      thumbnail: "images/smirk_uw.jpg",
+      color: "#a78bfa",
+      overlayTitle: "UW Graduate Post",
+      overlaySubtitle: "as a undergraduate @ UW CSSE",
+      verified: true,
+      verifiedColor: "#305a9e",
+      autoplay: true
     },
 
     /* ── ADD NEW FEATURED — VIDEO ──────────────────────────────────────────

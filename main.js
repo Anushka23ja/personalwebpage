@@ -348,23 +348,6 @@ function buildFeatured(){
     html += makeCard(featured[3], 'fc-article', 'fc-article-bg');
   }
 
-  // More coming soon card
-  html += `
-    <div class="featured-card fc-more fc-more-bg">
-      <div class="fc-more-inner">
-        <div class="fc-more-plus">+</div>
-        <div class="fc-more-label">More coming soon</div>
-      </div>
-    </div>`;
-
-  // Stat card
-  html += `
-    <div class="featured-card fc-stat fc-stat-bg">
-      <div class="fc-stat-inner">
-        <div class="fc-stat-num">${featured.length}+</div>
-        <div class="fc-stat-desc">Features across platforms</div>
-      </div>
-    </div>`;
 
   grid.innerHTML = html;
 }
@@ -462,6 +445,25 @@ function initScrollAnimations(){
       });
     }, { threshold: 0.2 });
     skillObs.observe(skillsGrid);
+  }
+
+  // Side Quests animations
+  const sidequestsSection = document.getElementById('sidequests');
+  if (sidequestsSection) {
+    const sqObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          const content = e.target.querySelector('.sq-content');
+          if (content) content.classList.add('visible');
+          e.target.querySelectorAll('.sq-hint').forEach(hint => {
+            hint.classList.add('visible');
+          });
+          sqObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    sqObs.observe(sidequestsSection);
   }
 }
 
