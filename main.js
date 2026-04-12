@@ -107,17 +107,36 @@ function buildCerts(){
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="${col.fg}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/>
     </svg>`;
+  const externalIcon = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+
   container.innerHTML = `<div class="ach-list">${
     PORTFOLIO.certifications.map(cert => {
       const col = c(cert.color);
-      return `
-        <div class="ach-item">
-          <div class="ach-icon" style="background:${col.bg}">${checkIcon(col)}</div>
-          <div>
-            <div class="ach-title">${cert.title}</div>
-            <div class="ach-sub">${cert.sub}</div>
-          </div>
-        </div>`;
+      const hasLink = !!cert.url;
+      const hasImage = !!cert.image;
+
+      // Left icon: image thumbnail OR colored check icon
+      const leftIcon = hasImage
+        ? `<img class="ach-img" src="${cert.image}" alt="${cert.title}" loading="lazy">`
+        : `<div class="ach-icon" style="background:${col.bg}">${checkIcon(col)}</div>`;
+
+      // External link button (shown only when url is set)
+      const linkBtn = hasLink
+        ? `<a class="ach-link-btn" href="${cert.url}" target="_blank" rel="noopener" title="View credential" onclick="event.stopPropagation()">${externalIcon}</a>`
+        : '';
+
+      // Wrap card in <a> if there's a URL so clicking anywhere opens it
+      const cardInner = `
+        ${leftIcon}
+        <div style="flex:1;min-width:0;">
+          <div class="ach-title">${cert.title}</div>
+          <div class="ach-sub">${cert.sub}</div>
+        </div>
+        ${linkBtn}`;
+
+      return hasLink
+        ? `<a class="ach-item has-link" href="${cert.url}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">${cardInner}</a>`
+        : `<div class="ach-item">${cardInner}</div>`;
     }).join('')
   }</div>`;
 }

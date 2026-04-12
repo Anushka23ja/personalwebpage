@@ -513,13 +513,52 @@ const PORTFOLIO = {
    *   1. Copy the template below and paste it before the closing ]
    *   2. Remove the comment markers and fill in your details.
    *
-   * color options: "mint" | "sky" | "lilac" | "peach" | "lemon"
+   * color options:  "mint" | "sky" | "lilac" | "peach" | "lemon"
+   *
+   * image:  Path to a screenshot of your certificate saved in the images/ folder.
+   *         e.g.  image: "images/cert-python.png"
+   *         → To show NO image (use icon instead): omit this field or set to null
+   *
+   * url:    Link that opens the full credential page (LinkedIn, Coursera, etc.)
+   *         e.g.  url: "https://www.linkedin.com/learning/certificates/..."
+   *         → Clicking the card OR the ↗ button will open this in a new tab
+   *         → To have NO link: omit this field or set to null
+   *
+   * ── HOW TO FIND YOUR LINKEDIN LEARNING CERTIFICATE LINK ──────────────────
+   *   1. Go to linkedin.com → Me → Learning History
+   *   2. Find your course → click "View certificate"
+   *   3. Copy the URL from your browser — paste it as the url field below
    */
   certifications: [
+
+    // ── LinkedIn Learning Certificates ──────────────────────────────────────
+    // STEP 1: Save a screenshot of each certificate to the images/ folder
+    //         (e.g. images/cert-linkedin-python.png)
+    // STEP 2: Replace the placeholder values below with your real cert details
+    // STEP 3: Paste your actual LinkedIn Learning certificate URL in the url field
+    //
+    {
+      title: "YOUR LINKEDIN LEARNING CERT TITLE HERE",
+      sub: "LinkedIn Learning · Issued Month Year",
+      color: "sky",
+      image: "images/cert-linkedin-1.png",   // ← add your screenshot to images/ folder
+      url: "https://www.linkedin.com/learning/certificates/REPLACE_WITH_CERT_ID",
+      //     ↑ Go to LinkedIn Learning → My Learning → View Certificate → copy URL
+    },
+    {
+      title: "YOUR LINKEDIN LEARNING CERT TITLE HERE",
+      sub: "LinkedIn Learning · Issued Month Year",
+      color: "lilac",
+      image: "images/cert-linkedin-2.png",   // ← add your screenshot to images/ folder
+      url: "https://www.linkedin.com/learning/certificates/REPLACE_WITH_CERT_ID",
+    },
+
+    // ── Other Certifications ─────────────────────────────────────────────────
     {
       title: "Introduction to Neuroscience and Artificial Intelligence",
       sub: "University of Washington · Issued Dec 2024",
       color: "mint",
+      // no image or url — shows the default check icon
     },
     {
       title: "Computer Programming Foundations Certificate",
@@ -527,14 +566,14 @@ const PORTFOLIO = {
       color: "sky",
     },
 
-    /* ── ADD NEW CERTIFICATION — copy block below, remove comment markers, fill in ──
+    /* ── ADD NEW CERTIFICATION — copy this block, remove comment markers, fill in ──
     {
       title: "Certification or Award Name",
       sub: "Issuing Organization · Issued Month Year",
-      //     ↑ examples: "Coursera · Issued Jan 2026"
-      //                 "AWS · Issued Mar 2026 · Expires Mar 2028"
-      color: "lilac",
+      color: "peach",
       //      ↑ "mint" | "sky" | "lilac" | "peach" | "lemon"
+      image: "images/cert-name.png",   // optional — screenshot saved in images/ folder
+      url: "https://...",              // optional — link to view full credential
     },
     ── END TEMPLATE ── */
   ],

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Anushka Chougule — Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css?v=20260314q"/>
+  <link rel="stylesheet" href="style.css?v=20260314u"/>
 </head>
 <body>
 
@@ -396,11 +396,27 @@
 
 
 <!-- ═══════════════════════════════════════════════
+     BACK TO TOP BUTTON
+════════════════════════════════════════════════ -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+
+<!-- ═══════════════════════════════════════════════
      SCRIPTS — load data first, then main
 ════════════════════════════════════════════════ -->
-<script src="data.js?v=20260314q"></script>
-<script src="main.js?v=20260314q"></script>
-<script src="phone.js?v=20260314q"></script>
+<script src="data.js?v=20260314u"></script>
+<script src="main.js?v=20260314u"></script>
+<script src="phone.js?v=20260314u"></script>
 
+<script>
+  (function(){
+    var btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', function(){
+      btn.classList.toggle('visible', window.scrollY > 400);
+    }, {passive: true});
+  })();
+</script>
 </body>
 </html>
